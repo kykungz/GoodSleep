@@ -10,7 +10,8 @@ Sleep / Wake up alarm recommendation to make sure that you get enough sleep (5-6
 ## Analysis Documents
 [Use cases](https://docs.google.com/document/d/1dD_cxPYbCFvI-vANBOuGUSiHkujDUJF7J6K6F128-mE/edit?usp=sharing)
 ![domain](./domain.JPG)
-![systemseq](./systemseq.JPG)
+<img width="400" src="./systemseq.JPG">
+
 ### Customer
 - 5910546406 Tharit Pongsaneh
 

@@ -26,12 +26,12 @@ class MainActivity : AppCompatActivity() {
     private fun configureHome(type: String, time: String) {
         when (type) {
             "" -> textView.text = "You have no timer!"
-            TimePicker.WAKE -> {
+            RecommendActivity.WAKE -> {
                 textView.text = "You must go to bed at ${time}\n\nIt takes the average human about 15 minutes to fall asleep.\n"
                 textView.setTextColor(Color.BLACK)
                 home.setBackgroundResource(R.drawable.town_day)
             }
-            TimePicker.SLEEP -> {
+            RecommendActivity.SLEEP -> {
                 textView.text = "You must wake up at ${time}.\n\nIf you wake up at this time, you'll rise in between 90-minute sleep cycles. A good night's sleep consists of 5-6 complete sleep cycles."
                 textView.setTextColor(Color.WHITE)
                 home.setBackgroundResource(R.drawable.town_night)
@@ -66,11 +66,11 @@ class MainActivity : AppCompatActivity() {
                     val onTimeSet = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                         Toast.makeText(this, "set ${hourOfDay} ${minute}", Toast.LENGTH_SHORT).show()
                         println("set ${hourOfDay} ${minute}")
-                        val intent = Intent(this, TimePicker::class.java)
-                        intent.putExtra(TimePicker.TYPE, TimePicker.SLEEP)
-                        intent.putExtra(TimePicker.HOUR, hourOfDay)
-                        intent.putExtra(TimePicker.MINUTE, minute)
-                        startActivityForResult(intent, TimePicker.REQUEST_CODE)
+                        val intent = Intent(this, RecommendActivity::class.java)
+                        intent.putExtra(RecommendActivity.TYPE, RecommendActivity.SLEEP)
+                        intent.putExtra(RecommendActivity.HOUR, hourOfDay)
+                        intent.putExtra(RecommendActivity.MINUTE, minute)
+                        startActivityForResult(intent, RecommendActivity.REQUEST_CODE)
                     }
                     val timePicker = TimePickerDialog(
                             this,
@@ -85,11 +85,11 @@ class MainActivity : AppCompatActivity() {
                     val onTimeSet = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
                         Toast.makeText(this, "set ${hourOfDay} ${minute}", Toast.LENGTH_SHORT).show()
                         println("set ${hourOfDay} ${minute}")
-                        val intent = Intent(this, TimePicker::class.java)
-                        intent.putExtra(TimePicker.TYPE, TimePicker.WAKE)
-                        intent.putExtra(TimePicker.HOUR, hourOfDay)
-                        intent.putExtra(TimePicker.MINUTE, minute)
-                        startActivityForResult(intent, TimePicker.REQUEST_CODE)
+                        val intent = Intent(this, RecommendActivity::class.java)
+                        intent.putExtra(RecommendActivity.TYPE, RecommendActivity.WAKE)
+                        intent.putExtra(RecommendActivity.HOUR, hourOfDay)
+                        intent.putExtra(RecommendActivity.MINUTE, minute)
+                        startActivityForResult(intent, RecommendActivity.REQUEST_CODE)
                     }
                     val timePicker = TimePickerDialog(
                             this,
@@ -107,9 +107,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == TimePicker.REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            time = data.getStringExtra(TimePicker.TIME)
-            type = data.getStringExtra(TimePicker.TYPE)
+        if (requestCode == RecommendActivity.REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            time = data.getStringExtra(RecommendActivity.TIME)
+            type = data.getStringExtra(RecommendActivity.TYPE)
             configureHome(type, time)
         }
     }

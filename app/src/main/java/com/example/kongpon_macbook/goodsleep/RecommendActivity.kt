@@ -20,7 +20,7 @@ import org.joda.time.format.DateTimeFormat
 
 
 
-class TimePicker : AppCompatActivity() {
+class RecommendActivity : AppCompatActivity() {
     private val formatter = DateTimeFormat.forPattern("hh:mm a")
     private lateinit var target: DateTime
 

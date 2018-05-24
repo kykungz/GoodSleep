@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
@@ -60,6 +61,8 @@ class TimePicker : AppCompatActivity() {
             val recommended = target.minusMinutes(15 + 90 * (index + 1))
             println(target.toString(DateTimeFormat.forPattern("hh:mm a")))
             time.text = recommended.toString(formatter)
+            time.setTextColor(Color.WHITE)
+            time.setBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
             time.setOnClickListener(View.OnClickListener { v ->
                 val intent = Intent()
                 intent.putExtra(TIME, recommended.toString(formatter))
@@ -77,6 +80,7 @@ class TimePicker : AppCompatActivity() {
         for ((index, time) in buttons.withIndex()) {
             val recommended = DateTime().plusMinutes(15 + 90 * (index + 1))
             time.text = recommended.toString(formatter)
+            time.setBackgroundColor(ContextCompat.getColor(this, android.R.color.holo_orange_light))
             time.setOnClickListener(View.OnClickListener { v ->
                 val intent = Intent()
                 intent.putExtra(TIME, recommended.toString(formatter))

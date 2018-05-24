@@ -8,8 +8,14 @@ Sleep / Wake up alarm recommendation to make sure that you get enough sleep (5-6
 ![design](./design.jpg)
 
 ## Analysis Documents
-[Use cases](https://docs.google.com/document/d/1dD_cxPYbCFvI-vANBOuGUSiHkujDUJF7J6K6F128-mE/edit?usp=sharing)
+
+#### Use cases
+https://docs.google.com/document/d/1dD_cxPYbCFvI-vANBOuGUSiHkujDUJF7J6K6F128-mE/edit?usp=sharing
+
+#### Domain Model
 ![domain](./domain.JPG)
+
+#### System Sequence Diagram
 <img width="400" src="./systemseq.JPG">
 
 ### Customer
